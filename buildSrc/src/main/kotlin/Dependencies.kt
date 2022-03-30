@@ -3,7 +3,7 @@ const val androidApp = "com.android.application"
 const val androidLib = "com.android.library"
 const val multiplatform = "multiplatform"
 const val composePlugin = "org.jetbrains.compose"
-const val cocopods = "native.cocoapods"
+const val cocoapods = "native.cocoapods"
 
 object Versions {
     // 1
@@ -15,7 +15,7 @@ object Versions {
     // Plugins
     const val kotlin = "1.6.10"
     const val kotlin_gradle_plugin = "1.6.10"
-    const val android_gradle_plugin = "7.0.4"
+    const val android_gradle_plugin = "7.1.2"
     const val desktop_compose_plugin = "1.0.1"
     const val compose_compiler_version= "1.1.0-rc02"
     const val compose_version= "1.1.0-rc01"
@@ -40,7 +40,7 @@ object Deps {
 
     object Compose {
         const val ui = "androidx.compose.ui:ui:${Versions.compose_version}"
-        const val uiUtil = "androidx.compose.ui:ui-util:${Versions.compose_version}"
+        const val ui_util = "androidx.compose.ui:ui-util:${Versions.compose_version}"
         const val tooling = "androidx.compose.ui:ui-tooling:${Versions.compose_version}"
         const val foundation = "androidx.compose.foundation:foundation:${Versions.compose_version}"
         const val material = "androidx.compose.material:material:${Versions.compose_version}"
@@ -61,6 +61,6 @@ object Deps {
     object JetBrains {
         const val datetime = "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.kotlinxDateTime}"
         const val uiDesktop = "org.jetbrains.compose.ui:ui-desktop:${Versions.desktop_compose_plugin}"
-        const val uiUtil = "org.jetbrains.compose.ui:ui-util:${Versions.desktop_compose_plugin}"
+        const val ui_util = "org.jetbrains.compose.ui:ui-util:${Versions.desktop_compose_plugin}"
     }
 }
