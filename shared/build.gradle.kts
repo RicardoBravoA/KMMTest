@@ -23,7 +23,14 @@ kotlin {
     }
     
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                // 1
+                implementation(Deps.JetBrains.datetime)
+                // 2
+                implementation(Deps.napier)
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
