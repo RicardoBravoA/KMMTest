@@ -91,7 +91,22 @@ fun MainView(actionBarFun: topBarFun = { emptyComposable() }) {
                 }
             }
         ) {
-            // TODO: Replace with Dialog
+            if (showAddDialog.value) {
+                AddTimeZoneDialog(
+                    onAdd = { newTimezones ->
+                        showAddDialog.value = false
+                        for (zone in newTimezones) {
+                            if (!currentTimezoneStrings.contains(zone)) {
+                                currentTimezoneStrings.add(zone)
+                            }
+                        }
+                    },
+                    onDismiss = {
+                        showAddDialog.value = false
+                    }
+                )
+            }
+
             when (selectedIndex.value) {
                 0 -> TimeZoneScreen(currentTimezoneStrings)
                 // 1 -> FindMeetingScreen(currentTimezoneStrings)

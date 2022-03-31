@@ -45,6 +45,52 @@ fun TimeZoneScreen(
         )
         Spacer(modifier = Modifier.size(16.dp))
 
-        // TODO: Add Timezone items
+        LazyColumn(
+            state = listState,
+        ) {
+            items(currentTimezoneStrings,
+                key = { timezone ->
+                    timezone
+                }) { timezoneString ->
+                AnimatedSwipeDismiss(
+                    item = timezoneString,
+                    background = { _ ->
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .height(50.dp)
+                                .background(Color.Red)
+                                .padding(
+                                    start = 20.dp,
+                                    end = 20.dp
+                                )
+                        ) {
+                            val alpha = 1f
+                            Icon(
+                                Icons.Filled.Delete,
+                                contentDescription = "Delete",
+                                modifier = Modifier
+                                    .align(Alignment.CenterEnd),
+                                tint = Color.White.copy(alpha = alpha)
+                            )
+                        }
+                    },
+                    content = {
+                        TimeCard(
+                            timezone = timezoneString,
+                            hours = timezoneHelper.hoursFromTimeZone(timezoneString),
+                            time = timezoneHelper.getTime(timezoneString),
+                            date = timezoneHelper.getDate(timezoneString)
+                        )
+                    },
+                    onDismiss = { zone ->
+                        if (currentTimezoneStrings.contains(zone)) {
+                            currentTimezoneStrings.remove(zone)
+                        }
+                    }
+                )
+            }
+        }
+
     }
 }
