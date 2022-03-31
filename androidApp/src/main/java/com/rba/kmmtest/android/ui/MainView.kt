@@ -92,7 +92,10 @@ fun MainView(actionBarFun: topBarFun = { emptyComposable() }) {
             }
         ) {
             // TODO: Replace with Dialog
-            // TODO: Replace with screens
+            when (selectedIndex.value) {
+                0 -> TimeZoneScreen(currentTimezoneStrings)
+                // 1 -> FindMeetingScreen(currentTimezoneStrings)
+            }
         }
     }
 }
