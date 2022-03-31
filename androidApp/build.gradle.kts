@@ -48,11 +48,13 @@ dependencies {
         implementation(runtime)
         implementation(runtime_livedata)
         implementation(ui)
-        implementation(tooling)
+        debugImplementation(tooling)
+        implementation(Deps.Compose.tooling_preview)
         implementation(foundation)
         implementation(foundationLayout)
         implementation(material)
         implementation(material_icons)
         implementation(activity)
     }
+
 }
